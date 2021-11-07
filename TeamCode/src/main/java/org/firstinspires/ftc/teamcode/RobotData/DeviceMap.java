@@ -4,10 +4,13 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.util.ElapsedTime;
+import com.qualcomm.robotcore.util.Hardware;
 
 public class DeviceMap {
-    public DcMotor FR, FL, BR, BL, DS;
-
+    public DcMotor FR, FL, BR, BL;
+    public DcMotor DS;
+    public DcMotor EL;
+    public DcMotor SW;
 
     ElapsedTime time = new ElapsedTime();
 
@@ -47,4 +50,8 @@ public class DeviceMap {
     public void DSInit(HardwareMap hwMap) {
         DS = hwMap.get(DcMotor.class, "DS");
     }
+    public void ELInit(HardwareMap hwMap) {
+        EL = hwMap.get(DcMotor.class, "EL");
+    }
+    public void SWInit(HardwareMap hwMap) { SW = hwMap.get(DcMotor.class, "DW"); }
 }
