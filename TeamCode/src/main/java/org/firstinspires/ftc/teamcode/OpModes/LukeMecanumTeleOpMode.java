@@ -3,17 +3,18 @@ package org.firstinspires.ftc.teamcode.OpModes;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-import org.firstinspires.ftc.teamcode.RobotData.DeviceMap;
 import org.firstinspires.ftc.teamcode.Subsystems.DriveTrain;
+import org.firstinspires.ftc.teamcode.Subsystems.DuckSpinner;
 
-@TeleOp(name = "MecTeleOp")
-public class MecanumTeleOpMode extends OpMode {
+@TeleOp(name = "LukeMecTeleOp")
+public class LukeMecanumTeleOpMode extends OpMode {
     DriveTrain driveTrain = new DriveTrain();
+    DuckSpinner duckSpinner = new DuckSpinner();
 
     //Runs once when "Init" button is pressed
     @Override
     public void init() {
-        driveTrain.mecanumInit(hardwareMap);
+        driveTrain.lukeMecInit(hardwareMap);
     }
 
     //Runs repeatedly after the driver hits INIT, but before they hit PLAY
@@ -41,3 +42,8 @@ public class MecanumTeleOpMode extends OpMode {
     public void stop() {
     }
 }
+
+
+
+
+

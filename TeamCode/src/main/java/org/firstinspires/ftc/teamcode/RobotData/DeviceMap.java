@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 public class DeviceMap {
-    public DcMotor FR, FL, BR, BL;
+    public DcMotor FR, FL, BR, BL, DS;
 
 
     ElapsedTime time = new ElapsedTime();
@@ -21,14 +21,15 @@ public class DeviceMap {
         }
     }
 
-    public void init(HardwareMap hwMap, boolean frr, boolean flr, boolean brr, boolean blr){
+    public void wheelInit(HardwareMap hwMap, boolean frr, boolean flr, boolean brr, boolean blr){
         FR = hwMap.get(DcMotor.class, "FR");
         FL = hwMap.get(DcMotor.class, "FL");
         BR = hwMap.get(DcMotor.class, "BR");
         BL = hwMap.get(DcMotor.class, "BL");
 
+
         FR.setDirection(dir(frr));
-        FL.setDirection(dir(blr));
+        FL.setDirection(dir(flr));
         BR.setDirection(dir(brr));
         BL.setDirection(dir(blr));
 
@@ -43,4 +44,7 @@ public class DeviceMap {
         BL.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
     }
 
+    public void DSInit(HardwareMap hwMap) {
+        DS = hwMap.get(DcMotor.class, "DS");
+    }
 }

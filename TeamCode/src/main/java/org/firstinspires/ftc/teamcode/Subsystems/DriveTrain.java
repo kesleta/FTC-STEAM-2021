@@ -13,19 +13,19 @@ public class DriveTrain {
 
     public DeviceMap dm = new DeviceMap();
 
-    public void mecanumInit(HardwareMap hw){
-        dm.init(hw, false, true, false, true);
+    public void jakeMecInit(HardwareMap hw){
+        dm.wheelInit(hw, false, true, false, true);
     }
 
-    public void plainInit(HardwareMap hw){
-        dm.init(hw, false, false, false, false);
+    public void lukeMecInit(HardwareMap hw){
+        dm.wheelInit(hw, false, false, false, false);
     }
 
     public void mecanumDrive(double forward, double lateral, double rotation){
-        double FRPower = forward - lateral - rotation;
-        double FLPower = forward + lateral + rotation;
-        double BRPower = forward + lateral - rotation;
-        double BLPower = forward - lateral + rotation;
+        double FRPower = forward + lateral + rotation;
+        double FLPower = forward - lateral - rotation;
+        double BRPower = forward - lateral + rotation;
+        double BLPower = forward + lateral - rotation;
 
         dm.FR.setPower(FRPower * FRWeight);
         dm.FL.setPower(FLPower * FLWeight);
