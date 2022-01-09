@@ -18,7 +18,7 @@ public class DriveTrain {
     }
 
     public void lukeMecInit(HardwareMap hw){
-        dm.wheelInit(hw, false, false, false, false);
+        dm.wheelInit(hw, false, false, true, true);
     }
 
     public void mecanumDrive(double forward, double lateral, double rotation){

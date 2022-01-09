@@ -1,16 +1,18 @@
 package org.firstinspires.ftc.teamcode.RobotData;
 
+import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
-import com.qualcomm.robotcore.util.Hardware;
 
 public class DeviceMap {
     public DcMotor FR, FL, BR, BL;
     public DcMotor DS;
     public DcMotor EL;
-    public DcMotor SW;
+
+    public Servo SW, GB;
 
     ElapsedTime time = new ElapsedTime();
 
@@ -53,5 +55,10 @@ public class DeviceMap {
     public void ELInit(HardwareMap hwMap) {
         EL = hwMap.get(DcMotor.class, "EL");
     }
-    public void SWInit(HardwareMap hwMap) { SW = hwMap.get(DcMotor.class, "DW"); }
+    public void SWInit(HardwareMap hwMap) {
+        SW = hwMap.get(Servo.class, "SW");
+    }
+    public void GBInit(HardwareMap hwMap) {
+        GB = hwMap.get(Servo.class, "GB");
+    }
 }
