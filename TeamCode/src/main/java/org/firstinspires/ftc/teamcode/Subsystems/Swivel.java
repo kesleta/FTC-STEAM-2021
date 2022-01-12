@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 import org.firstinspires.ftc.teamcode.RobotData.DeviceMap;
 
 public class Swivel {
-    double frontBound = 0.792;
+    double frontBound = 0.796;
     double backBound = 0.715;
     double pos = 1;
 
@@ -18,6 +18,11 @@ public class Swivel {
         p += backBound;
         p = p>frontBound ? frontBound : p;
         p = p<backBound ? backBound : p;
+        pos = p;
+        dm.SW.setPosition(pos);
+    }
+
+    public void setPos(double p){
         pos = p;
         dm.SW.setPosition(pos);
     }

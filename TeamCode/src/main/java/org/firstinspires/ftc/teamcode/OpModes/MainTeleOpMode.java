@@ -46,9 +46,11 @@ public class MainTeleOpMode extends OpMode {
     //Runs repeatedly after the driver hits START, but before they hit STOP
     @Override
     public void loop() {
-        double str = -gamepad1.right_stick_y * (gamepad1.left_bumper ? 0.5 : 1) * (reversed ? -1 : 1);
-        double lat = -gamepad1.right_stick_x * (gamepad1.left_bumper ? 0.5 : 1) * (reversed ? -1 : 1);
-        double rot = -gamepad1.left_stick_x  * (gamepad1.left_bumper ? 0.5 : 1);
+        double fastMode = 0.7;
+        double slowMode = 0.3;
+        double str = -gamepad1.right_stick_y * (gamepad1.left_bumper ? 0.3 : 0.7) * (reversed ? -1 : 1);
+        double lat = -gamepad1.right_stick_x * (gamepad1.left_bumper ? 0.3 : 0.7) * (reversed ? -1 : 1);
+        double rot = -gamepad1.left_stick_x  * (gamepad1.left_bumper ? 0.3 : 0.6);
         driveTrain.mecanumDrive(str, lat, rot);
         duckSpinner.turn(gamepad1.right_trigger);
 
@@ -77,12 +79,15 @@ public class MainTeleOpMode extends OpMode {
             reverseTogPressed = false;
         }
         //Swivel
-        swivel.turn((gamepad2.dpad_right ? -0.0005 : 0) + (gamepad2.dpad_left ? 0.0005 : 0));
+        swivel.turn((gamepad2.dpad_left ? -0.0005 : 0) + (gamepad2.dpad_right ? 0.0005 : 0));
+        if(gamepad2.left_bumper){
+            swivel.setPos(0.792);
+        }
 
 
 
 
-        telemetry.addData("state", "State: " + grabber.getState());
+        telemetry.addData("swivel", "Swivel : " + swivel.getPos());
     }
 
     //Runs once when "Stop" button is pressed

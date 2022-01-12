@@ -6,8 +6,8 @@ import org.firstinspires.ftc.teamcode.RobotData.DeviceMap;
 
 
 public class Grabber {
-    double open = 0.4680;
-    double closed = 0.4400;
+    double open = 0.4800;
+    double closed = 0.4350;
     enum States {OPEN, CLOSED}
     States state;
 
