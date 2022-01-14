@@ -18,7 +18,7 @@ public class MainTeleOpMode extends OpMode {
     DuckSpinner duckSpinner = new DuckSpinner();
 
     boolean grabTogPressed = false;
-    boolean reversed = false;
+    boolean reversed = true;
     boolean reverseTogPressed = false;
 
     //Runs once when "Init" button is pressed
@@ -49,10 +49,10 @@ public class MainTeleOpMode extends OpMode {
         double fastMode = 0.7;
         double slowMode = 0.3;
         double str = -gamepad1.right_stick_y * (gamepad1.left_bumper ? 0.3 : 0.7) * (reversed ? -1 : 1);
-        double lat = -gamepad1.right_stick_x * (gamepad1.left_bumper ? 0.3 : 0.7) * (reversed ? -1 : 1);
-        double rot = -gamepad1.left_stick_x  * (gamepad1.left_bumper ? 0.3 : 0.6);
+        double lat = -gamepad1.right_stick_x * (gamepad1.left_bumper ? 0.5 : 1) * (reversed ? -1 : 1);
+        double rot = gamepad1.left_stick_x  * (gamepad1.left_bumper ? 0.3 : 0.6);
         driveTrain.mecanumDrive(str, lat, rot);
-        duckSpinner.turn(gamepad1.right_trigger);
+        duckSpinner.turn(gamepad1.right_trigger*0.7);
 
         //Elevator
         elevator.turn(gamepad2.left_trigger - gamepad2.right_trigger);
